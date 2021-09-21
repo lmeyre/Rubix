@@ -65,7 +65,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -127,7 +127,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -189,7 +189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -251,7 +251,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -313,7 +313,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -375,7 +375,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -437,7 +437,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -499,7 +499,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -561,7 +561,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -623,7 +623,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -685,7 +685,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -747,7 +747,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -809,7 +809,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -871,7 +871,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -933,7 +933,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -995,7 +995,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1057,7 +1057,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1119,7 +1119,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1181,7 +1181,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1243,7 +1243,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1305,7 +1305,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1367,7 +1367,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1429,7 +1429,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1491,7 +1491,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1553,7 +1553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
@@ -1615,7 +1615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466512547565607434, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_Name
-      value: MiniCube
+      value: Cubie
       objectReference: {fileID: 0}
     - target: {fileID: 466512547565607438, guid: 159d399d421ab5241a3038dd3631465b, type: 3}
       propertyPath: m_RootOrder
