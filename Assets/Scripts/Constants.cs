@@ -25,6 +25,7 @@ public static class Constants
 		{  1,  8,  5, 10,  13,  12,  16,  19 },   // R
         //on fait marcher avec son tableau et apres on remettre dans l'ordre, genre le D ca pourrait pas etre le bordel je pense ca change rien ou on attribue les faces
 
+
         //Ca marchait avec ca, mettre ca quand ona finit : valeurs plus ordonnees
 
         // {  0,  1,  2,  3,  0,  1,  2,  3 },   // U
@@ -59,6 +60,10 @@ public static class Constants
     };
 
     public static readonly int[] PHASES_MOVES = { 0, 262143, 259263, 74943, 74898 };
+
+    public static readonly int EDGES_COUNT = 12;
+    public static readonly int CORNERS_COUNT = 8;
+    public static readonly int FULL_STATE_SIZE = 40;
 
     //010 010 011 011 010 010
 }

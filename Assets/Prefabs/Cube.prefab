@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8439020320036042794}
+  - component: {fileID: 3306500664270949847}
+  - component: {fileID: 3306500664270949848}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -56,6 +58,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3306500664270949847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578171756247402833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a9b4d365f9c4f43802af1c8fdbd1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 140
+--- !u!114 &3306500664270949848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578171756247402833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d62335b1dc9f1f4ca8fc60141175cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualizing: 0
+  solvingAlgo: {fileID: 0}
+  cube: {fileID: 8578171756247402833}
 --- !u!1001 &972849634812811136
 PrefabInstance:
   m_ObjectHideFlags: 0

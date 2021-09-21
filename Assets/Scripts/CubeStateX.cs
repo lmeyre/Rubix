@@ -28,6 +28,7 @@ public class CubeStateX : MonoBehaviour
         Constants.SOLVED_STATE.CopyTo(solvingAlgo.cubeState, 0);
     }
 
+    [ContextMenu("Solve")]
     public void Solve()
     {
         if (visualizing)
