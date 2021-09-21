@@ -6,11 +6,6 @@ using System.Linq;
 
 public class SolverHelper
 {
-    public int GetInverseMove(int move)
-    {
-        return move + 2 - 2 * (move % 3);
-    }
-
     //en fait ce qui est bien c'est que comme on l'appelle en boucle quand on test les move
     //quand on essai de bien mettre les edge par exemple on copie que cette info et on manipule des donnees plus faible en boucle, en ignorant le reste
     public int[] GetSubState(int[] state, int phase)

@@ -4,12 +4,13 @@ using UnityEngine;
 using System.Diagnostics;
 using System.Threading;
 
-public class CubeStateX : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public bool visualizing;
 
     [SerializeField] CubeSolver solvingAlgo;
     [SerializeField] GameObject cube;
+    [SerializeField] GameObject colliderHolder;
 
     Stopwatch timer;
 
@@ -33,13 +34,15 @@ public class CubeStateX : MonoBehaviour
     {
         if (visualizing)
         {
-            cube.gameObject.SetActive(true);
+            cube.SetActive(true);
+            colliderHolder.SetActive(true);
             List<int> moves = solvingAlgo.Solve();
             //Apply move visualy
         }
         else
         {
-            cube.gameObject.SetActive(false);
+            cube.SetActive(false);
+            colliderHolder.SetActive(false);
             timer.Start();
             solvingAlgo.Solve();
             timer.Stop();

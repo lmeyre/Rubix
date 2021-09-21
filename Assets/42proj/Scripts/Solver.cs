@@ -96,7 +96,7 @@ public class Solver : MonoBehaviour
                 this.currentState = this.ApplyMove(moveInt, this.currentState);
 
                 // add and log this move
-                AMove moveObj = MoveFactory.Instance.CreateMoveFromInt(moveInt);
+                AMove moveObj = null;//MoveFactory.Instance.CreateMoveFromInt(moveInt);
                 moves.Add(moveObj);
                 this.movesLogText.text += moveObj.ToSymbol() + " ";
             }

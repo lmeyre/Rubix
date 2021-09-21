@@ -7,7 +7,7 @@ using System.Linq;
 
 public class CubeSolver : MonoBehaviour
 {
-    public int[] cubeState;
+    [HideInInspector] public int[] cubeState;
 
     SolverHelper helper;
 
@@ -80,7 +80,7 @@ public class CubeSolver : MonoBehaviour
                             int[] tempID = newID;
                             newID = oldID;
                             oldID = tempID;
-                            move = helper.GetInverseMove(move);
+                            move = Tools.GetInverseMove(move);
                         }
                         LinkedList<int> currentPhaseMoves = new LinkedList<int>(); // virer la linked list ? a reflechir
                         currentPhaseMoves.AddFirst(move);
@@ -91,7 +91,7 @@ public class CubeSolver : MonoBehaviour
                         }
                         while (!newID.SequenceEqual(goalSubState))
                         {
-                            currentPhaseMoves.AddLast(helper.GetInverseMove(data[newID].lastMove));
+                            currentPhaseMoves.AddLast(Tools.GetInverseMove(data[newID].lastMove));
                             newID = data[newID].parentNode;
                         }
                         return currentPhaseMoves;
