@@ -7,12 +7,12 @@ public class ColliderDetection : MonoBehaviour
     private List<GameObject> colliders = new List<GameObject>();
     public List<GameObject> GetCubies() { return colliders; }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (!colliders.Contains(other.gameObject)) { colliders.Add(other.gameObject); }
+        if (!colliders.Contains(collision.gameObject)) { colliders.Add(collision.gameObject); }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision other)
     {
         colliders.Remove(other.gameObject);
     }
