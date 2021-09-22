@@ -26,16 +26,24 @@ public class CubeSolver : MonoBehaviour
             int[] currSubState = helper.GetSubState(cubeState, phase);
             int[] goalSubState = helper.GetSubState(Constants.SOLVED_STATE, phase);
             if (currSubState.SequenceEqual(goalSubState))
+            {
                 continue;
+            }
             LinkedList<int> currentPhaseMoves = DoubleSearch(currSubState, goalSubState, phase);
+            Debug.Log("Phase " + phase + " moves :");
+            foreach (int i in currentPhaseMoves)
+                Debug.Log(i);
             foreach (int currMove in currentPhaseMoves)
             {
                 cubeState = ApplyMove(currMove, cubeState);
                 winningMoves.Add(currMove);
             }
         }
-        Debug.Log("CubeState :");
-        foreach (int i in cubeState)
+        // Debug.Log("CubeState :");
+        // foreach (int i in cubeState)
+        //     Debug.Log(i);
+        Debug.Log("SolvingMoves :");
+        foreach (int i in winningMoves)
             Debug.Log(i);
         return winningMoves;
     }
@@ -111,8 +119,7 @@ public class CubeSolver : MonoBehaviour
         }
     }
 
-    //ptet refaire cette methode nous meme
-    int[] ApplyMove(int move, int[] origin)
+    public int[] ApplyMove(int move, int[] origin)
     {
         //New / old to have a tmp buffer to not erase a value while we turn
         int[] newState = new int[Constants.FULL_STATE_SIZE];

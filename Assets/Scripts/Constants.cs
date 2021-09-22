@@ -65,5 +65,8 @@ public static class Constants
     public static readonly int CORNERS_COUNT = 8;
     public static readonly int FULL_STATE_SIZE = 40;
 
+    public static readonly string VALID_INPUT_1 = "UDFBLR";
+    public static readonly string VALID_INPUT_2 = "2'";
+
     //010 010 011 011 010 010
 }

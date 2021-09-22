@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoveManager : MonoBehaviour
 {
-    public bool isMoving;
+    [HideInInspector] public bool isMoving;
+    [HideInInspector] public UnityEvent animationEvent;
 
     float movingSpeed = 200;
 
@@ -17,6 +19,11 @@ public class MoveManager : MonoBehaviour
 
     [SerializeField] Transform upCubie, downCubie, frontCubie, backCubie, leftCubie, rightCubie; //Center cubies -> Rotator parents
     [SerializeField] Transform cube;
+
+    void Awake()
+    {
+        animationEvent = new UnityEvent();
+    }
 
     public void Move(int move)
     {
@@ -124,5 +131,6 @@ public class MoveManager : MonoBehaviour
         rotater.rotation = origin;
         rotater.Rotate(axis * angle, Space.Self);
         isMoving = false;
+        animationEvent?.Invoke();
     }
 }

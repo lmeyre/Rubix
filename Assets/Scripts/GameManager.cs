@@ -9,14 +9,20 @@ public class GameManager : MonoBehaviour
     public bool visualizing;
 
     [SerializeField] CubeSolver solvingAlgo;
+    [SerializeField] CubeRotator rotator;
+    [SerializeField] MoveManager moveManager;
     [SerializeField] GameObject cube;
     [SerializeField] GameObject colliderHolder;
 
     Stopwatch timer;
+    List<int> movesSequence;
+    bool cascading;
 
     void Awake()
     {
         timer = new Stopwatch();
+        movesSequence = new List<int>();
+        moveManager.animationEvent.AddListener(TriggerNextMove);
     }
 
     void Start()
@@ -26,18 +32,25 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
+        if (cascading)
+            return;
         Constants.SOLVED_STATE.CopyTo(solvingAlgo.cubeState, 0);
+        rotator.Reset();
     }
 
-    [ContextMenu("Solve")]
     public void Solve()
     {
+        if (cascading)
+            return;
         if (visualizing)
         {
             cube.SetActive(true);
             colliderHolder.SetActive(true);
-            List<int> moves = solvingAlgo.Solve();
-            //Apply move visualy
+            timer.Start();
+            movesSequence = solvingAlgo.Solve();
+            timer.Stop();
+            UnityEngine.Debug.Log("Duration (With graphics) : " + timer.Elapsed.TotalSeconds);
+            TriggerNextMove();
         }
         else
         {
@@ -46,8 +59,42 @@ public class GameManager : MonoBehaviour
             timer.Start();
             solvingAlgo.Solve();
             timer.Stop();
-            double elasped = timer.Elapsed.TotalSeconds;
-            UnityEngine.Debug.Log("Duration : " + elasped);
+            UnityEngine.Debug.Log("Duration : " + timer.Elapsed.TotalSeconds);
         }
+    }
+
+    //Affect visual AND logic
+    public void ApplyInput()
+    {
+        if (cascading)
+            return;
+        movesSequence.Clear();
+        string[] parts = ArgumentEmulator.ARGUMENT.Split();
+        foreach (string s in parts)
+        {
+            int move = Tools.TranslateInputToMove(s);
+            if (move == -42)
+            {
+                UnityEngine.Debug.LogError("Wrong input");
+                return;
+            }
+            UnityEngine.Debug.Log("Input = " + move + " was " + s);
+            solvingAlgo.ApplyMove(move, solvingAlgo.cubeState);
+            movesSequence.Add(move);
+        }
+        TriggerNextMove();
+    }
+
+    //Only visual
+    void TriggerNextMove()
+    {
+        cascading = true;
+        if (movesSequence.Count == 0)
+        {
+            cascading = false;
+            return;
+        }
+        moveManager.Move(movesSequence[0]);
+        movesSequence.RemoveAt(0);
     }
 }
