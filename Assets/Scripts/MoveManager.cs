@@ -112,12 +112,6 @@ public class MoveManager : MonoBehaviour
         StartCoroutine(Rotation(angle, axis, rotater));
     }
 
-    [ContextMenu("TESTTT")]
-    public void test()
-    {
-        RotateFace(up, -90, Vector3.up, upCubie);
-    }
-
     IEnumerator Rotation(float angle, Vector3 axis, Transform rotater)
     {
         Quaternion origin = rotater.rotation;

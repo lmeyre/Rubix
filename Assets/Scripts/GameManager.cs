@@ -22,11 +22,11 @@ public class GameManager : MonoBehaviour
     {
         timer = new Stopwatch();
         movesSequence = new List<int>();
-        moveManager.animationEvent.AddListener(TriggerNextMove);
     }
 
     void Start()
     {
+        moveManager.animationEvent.AddListener(TriggerNextMove);
         Reset();
     }
 
@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
         if (cascading)
             return;
         Constants.SOLVED_STATE.CopyTo(solvingAlgo.cubeState, 0);
-        // System.Array.Copy(Constants.SOLVED_STATE, solvingAlgo.cubeState, Constants.SOLVED_STATE.Length);
         rotator.Reset();
     }
 
@@ -86,9 +85,6 @@ public class GameManager : MonoBehaviour
             movesSequence.Add(move);
         }
         TriggerNextMove();
-        // UnityEngine.Debug.Log("Initial input CubeState :");
-        // foreach (int i in solvingAlgo.cubeState)
-        //     UnityEngine.Debug.Log(i);
     }
 
     //Only visual

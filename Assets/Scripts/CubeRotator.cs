@@ -24,8 +24,6 @@ public class CubeRotator : MonoBehaviour
             cubiesStartingPos.Add(cubie.transform.position);
             cubies.Add(cubie);
         }
-        // cubies.Add(transform.GetChild(22));
-        // cubiesStartingPos.Add(transform.GetChild(22).position);
     }
 
     void Update()
