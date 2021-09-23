@@ -96,7 +96,7 @@ public class Solver : MonoBehaviour
                 this.currentState = this.ApplyMove(moveInt, this.currentState);
 
                 // add and log this move
-                AMove moveObj = null;//MoveFactory.Instance.CreateMoveFromInt(moveInt);
+                AMove moveObj = null;//is MoveFactory.Instance.CreateMoveFromInt(moveInt);
                 moves.Add(moveObj);
                 this.movesLogText.text += moveObj.ToSymbol() + " ";
             }
@@ -120,12 +120,13 @@ public class Solver : MonoBehaviour
         Dictionary<int[], int> lastMove = new Dictionary<int[], int>(new MyIntArrayComparer());
         direction[currentID] = FORWARD;
         direction[goalID] = BACKWARD;
-
+        Debug.Log("Curr and goal length -> " + currentID.Length + " " + goalID.Length);
         while (true)
         {
             // Get next state from queue, find its ID and direction
             int[] oldState = q.Dequeue();
             int[] oldID = this.GetID(oldState, phase);
+            Debug.Log("At first loop only, first is curr, length of it after it again :" + oldID.Length);
             int oldDir = direction[oldID];
 
             for (int move = 0; move < 18; move++) // 18 moves car ya 6 faces, qu'on peut faire aller d'un ou 2 cran clockwise ou counter, donc 6 x 4, mais faire avancer de 2 cran en clockwise ou counter clockwise revient au meme donc 6x3

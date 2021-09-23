@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         if (cascading)
             return;
         Constants.SOLVED_STATE.CopyTo(solvingAlgo.cubeState, 0);
+        // System.Array.Copy(Constants.SOLVED_STATE, solvingAlgo.cubeState, Constants.SOLVED_STATE.Length);
         rotator.Reset();
     }
 
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
             movesSequence = solvingAlgo.Solve();
             timer.Stop();
             UnityEngine.Debug.Log("Duration (With graphics) : " + timer.Elapsed.TotalSeconds);
+            UnityEngine.Debug.Log("Moves Count : " + movesSequence.Count);
+            string sequence = GetStringSequence(movesSequence);
+            UnityEngine.Debug.Log("Sequence : " + sequence);
             TriggerNextMove();
         }
         else
@@ -69,20 +73,22 @@ public class GameManager : MonoBehaviour
         if (cascading)
             return;
         movesSequence.Clear();
-        string[] parts = ArgumentEmulator.ARGUMENT.Split();
+        string[] parts = ArgumentEmulator.ARGUMENT.Split(' ');
         foreach (string s in parts)
         {
             int move = Tools.TranslateInputToMove(s);
             if (move == -42)
             {
-                UnityEngine.Debug.LogError("Wrong input");
+                UnityEngine.Debug.LogError("Wrong input : |" + s + "|");
                 return;
             }
-            UnityEngine.Debug.Log("Input = " + move + " was " + s);
-            solvingAlgo.ApplyMove(move, solvingAlgo.cubeState);
+            solvingAlgo.cubeState = solvingAlgo.MoveState(move, solvingAlgo.cubeState);
             movesSequence.Add(move);
         }
         TriggerNextMove();
+        // UnityEngine.Debug.Log("Initial input CubeState :");
+        // foreach (int i in solvingAlgo.cubeState)
+        //     UnityEngine.Debug.Log(i);
     }
 
     //Only visual
@@ -94,7 +100,17 @@ public class GameManager : MonoBehaviour
             cascading = false;
             return;
         }
-        moveManager.Move(movesSequence[0]);
+        moveManager.Move(movesSequence[0], 300);
         movesSequence.RemoveAt(0);
+    }
+
+    string GetStringSequence(List<int> moves)
+    {
+        string str = "";
+        foreach (int i in moves)
+        {
+            str += (i.ToString() + " ");
+        }
+        return str;
     }
 }

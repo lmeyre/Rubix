@@ -20,40 +20,37 @@ public class CubeSolver : MonoBehaviour
     public List<int> Solve()
     {
         List<int> winningMoves = new List<int>();
-
+        // Debug.Log("Initial CubeState :");
+        // foreach (int i in cubeState)
+        //     Debug.Log(i);
         for (int phase = 1; phase < 5; phase++)
         {
             int[] currSubState = helper.GetSubState(cubeState, phase);
-            int[] goalSubState = helper.GetSubState(Constants.SOLVED_STATE, phase);
-            if (currSubState.SequenceEqual(goalSubState))
+            int[] solvedSubState = helper.GetSubState(Constants.SOLVED_STATE, phase);
+            if (currSubState.SequenceEqual(solvedSubState))
             {
+                //Debug.Log("EQUAL");
                 continue;
             }
-            LinkedList<int> currentPhaseMoves = DoubleSearch(currSubState, goalSubState, phase);
-            Debug.Log("Phase " + phase + " moves :");
-            foreach (int i in currentPhaseMoves)
-                Debug.Log(i);
+            LinkedList<int> currentPhaseMoves = DoubleSearch(currSubState, solvedSubState, phase);
+            // Debug.Log("Phase " + phase + " moves :");
+            // foreach (int i in currentPhaseMoves)
+            //     Debug.Log(i);
             foreach (int currMove in currentPhaseMoves)
             {
-                cubeState = ApplyMove(currMove, cubeState);
+                cubeState = MoveState(currMove, cubeState);
                 winningMoves.Add(currMove);
             }
         }
-        // Debug.Log("CubeState :");
-        // foreach (int i in cubeState)
-        //     Debug.Log(i);
-        Debug.Log("SolvingMoves :");
-        foreach (int i in winningMoves)
-            Debug.Log(i);
         return winningMoves;
     }
 
-    LinkedList<int> DoubleSearch(int[] currSubState, int[] goalSubState, int phase)
+    LinkedList<int> DoubleSearch(int[] currSubState, int[] solvedSubState, int phase)
     {
         //la clef est un substate, car on mettant des fullstate, ca fait exploser le pc, en mettant des hashcode ca marche pas car 2 substate identique sont different via ID
         S_data tmpData;
         Queue<int[]> doubleWay = new Queue<int[]>();
-        Dictionary<int[], S_data> data = new Dictionary<int[], S_data>();
+        Dictionary<int[], S_data> data = new Dictionary<int[], S_data>(new SurrogateEqualityKey());
 
         doubleWay.Enqueue(cubeState);
         doubleWay.Enqueue(Constants.SOLVED_STATE);
@@ -61,46 +58,64 @@ public class CubeSolver : MonoBehaviour
         tmpData = new S_data();
         tmpData.way = E_Way.Forward;
         data[currSubState] = tmpData;
+        // Debug.Log("Curr1 :");
+        // foreach (int i in currSubState)
+        //     Debug.Log(i);
         tmpData = new S_data();
         tmpData.way = E_Way.Backward;
-        data[goalSubState] = tmpData;
+        data[solvedSubState] = tmpData;
+        //int debug = 0;
+        //Debug.Log("Curr and goal length -> " + currSubState.Length + " " + solvedSubState.Length);
         while (true)
         {
+            // debug++;
+            // if (debug == 10000)
+            // {
+            //     Debug.Log("BLOQUEEEEEEEEEEEEEE");
+            //     return null;
+            // }
             int[] oldState = doubleWay.Dequeue();
-            int[] oldID = helper.GetSubState(oldState, phase);
-            E_Way lastDirection = data[oldID].way;
+            //We needed to find a compatible key that we could re create from oldstate
+            //That wasnt the old state or pc would explode
+            int[] oldKey = helper.GetSubState(oldState, phase);
+            // Debug.Log("Curr2 :");
+            // for (int i = 0; i < oldKey.Length; i++)
+            //     if (oldKey[i] != currSubState[i])
+            //         Debug.Log("old = " + oldKey[i] + " and curr = " + currSubState[i] + " AT INDEX " + i); ;
+            //Debug.Log("At first loop only, first is curr, length of it after it again :" + oldKey.Length);
+            E_Way lastDirection = data[oldKey].way;
 
             for (int move = 0; move < 18; move++) // 18 moves car ya 6 faces, qu'on peut faire aller d'un ou 2 cran clockwise ou counter, donc 6 x 4, mais faire avancer de 2 cran en clockwise ou counter clockwise revient au meme donc 6x3
             {
                 if ((Constants.PHASES_MOVES[phase] & (1 << move)) > 0)
                 {                               // ci dessus, si on est au move 2, ben on decale le "1" de 2 bit, comme ca il est en deuxieme (ou troisieme a voir) position, donc genre 0001 0000 veut dire qu'on a le 5eme move c'est tres simple
                     // generate a new state from the old state
-                    int[] newState = ApplyMove(move, oldState);
-                    int[] newID = helper.GetSubState(newState, phase);
+                    int[] newState = MoveState(move, oldState);
+                    int[] newKey = helper.GetSubState(newState, phase);
                     E_Way newDirection = E_Way.None;
-                    if (data.ContainsKey(newID))
-                        newDirection = data[newID].way;
+                    if (data.ContainsKey(newKey))
+                        newDirection = data[newKey].way;
 
                     if (newDirection != 0 && newDirection != lastDirection)
                     {
                         if (lastDirection == E_Way.Backward)
                         {
-                            int[] tempID = newID;
-                            newID = oldID;
-                            oldID = tempID;
+                            int[] tempKey = newKey;
+                            newKey = oldKey;
+                            oldKey = tempKey;
                             move = Tools.GetInverseMove(move);
                         }
                         LinkedList<int> currentPhaseMoves = new LinkedList<int>(); // virer la linked list ? a reflechir
                         currentPhaseMoves.AddFirst(move);
-                        while (!oldID.SequenceEqual(currSubState))
+                        while (!oldKey.SequenceEqual(currSubState))
                         {
-                            currentPhaseMoves.AddFirst(data[oldID].lastMove);
-                            oldID = data[oldID].parentNode;
+                            currentPhaseMoves.AddFirst(data[oldKey].lastMove);
+                            oldKey = data[oldKey].parentNode;
                         }
-                        while (!newID.SequenceEqual(goalSubState))
+                        while (!newKey.SequenceEqual(solvedSubState))
                         {
-                            currentPhaseMoves.AddLast(Tools.GetInverseMove(data[newID].lastMove));
-                            newID = data[newID].parentNode;
+                            currentPhaseMoves.AddLast(Tools.GetInverseMove(data[newKey].lastMove));
+                            newKey = data[newKey].parentNode;
                         }
                         return currentPhaseMoves;
                     }
@@ -111,15 +126,15 @@ public class CubeSolver : MonoBehaviour
                         tmpData = new S_data();
                         tmpData.way = lastDirection;
                         tmpData.lastMove = move;
-                        tmpData.parentNode = oldID;
-                        data.Add(newID, tmpData);
+                        tmpData.parentNode = oldKey;
+                        data.Add(newKey, tmpData);
                     }
                 }
             }
         }
     }
 
-    public int[] ApplyMove(int move, int[] origin)
+    public int[] MoveState(int move, int[] origin)
     {
         //New / old to have a tmp buffer to not erase a value while we turn
         int[] newState = new int[Constants.FULL_STATE_SIZE];
@@ -145,6 +160,7 @@ public class CubeSolver : MonoBehaviour
                 int orientationDelta = (i < 4) ? Convert.ToInt32(sideToRotate > 1 && sideToRotate < 4) :
                     (sideToRotate < 2) ? 0 : 2 - (i & 1); // pour capter quel orientation change, pas besoin de comprendre de ouf forcement, ya 2 maniere pour corner ou edge
                 newState[oldCubieValue] = oldState[newCubieValue];
+                //Debug.Log("old = " + oldState[oldCubieValue] + " and new = " + newState[oldCubieValue]);
                 //au dessus on remplace la position
                 //ci dessous l'orientation
                 newState[oldCubieValue + 20] = oldState[newCubieValue + 20] + orientationDelta;

@@ -8,7 +8,7 @@ public class MoveManager : MonoBehaviour
     [HideInInspector] public bool isMoving;
     [HideInInspector] public UnityEvent animationEvent;
 
-    float movingSpeed = 200;
+    float movingSpeed = 300;
 
     [SerializeField] ColliderDetection up;
     [SerializeField] ColliderDetection down;
@@ -25,11 +25,12 @@ public class MoveManager : MonoBehaviour
         animationEvent = new UnityEvent();
     }
 
-    public void Move(int move)
+    public void Move(int move, int speed = 300)
     {
         if (isMoving == true)
             Debug.LogError("PROBLEM");
         isMoving = true;
+        movingSpeed = speed;
         switch (move)
         {
             //Up

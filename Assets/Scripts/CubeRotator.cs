@@ -46,37 +46,37 @@ public class CubeRotator : MonoBehaviour
         {
             int move = (revert == true ? Tools.GetInverseMove(0) : 0);
             moveManager.Move(move);
-            logic.ApplyMove(move, logic.cubeState);
+            logic.cubeState = logic.MoveState(move, logic.cubeState);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             int move = (revert == true ? Tools.GetInverseMove(3) : 3);
             moveManager.Move(move);
-            logic.ApplyMove(move, logic.cubeState);
+            logic.cubeState = logic.MoveState(move, logic.cubeState);
         }
         else if (Input.GetKeyDown(KeyCode.F))
         {
             int move = (revert == true ? Tools.GetInverseMove(6) : 6);
             moveManager.Move(move);
-            logic.ApplyMove(move, logic.cubeState);
+            logic.cubeState = logic.MoveState(move, logic.cubeState);
         }
         else if (Input.GetKeyDown(KeyCode.B))
         {
             int move = (revert == true ? Tools.GetInverseMove(9) : 9);
             moveManager.Move(move);
-            logic.ApplyMove(move, logic.cubeState);
+            logic.cubeState = logic.MoveState(move, logic.cubeState);
         }
         else if (Input.GetKeyDown(KeyCode.L))
         {
             int move = (revert == true ? Tools.GetInverseMove(12) : 12);
             moveManager.Move(move);
-            logic.ApplyMove(move, logic.cubeState);
+            logic.cubeState = logic.MoveState(move, logic.cubeState);
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
             int move = (revert == true ? Tools.GetInverseMove(15) : 15);
             moveManager.Move(move);
-            logic.ApplyMove(move, logic.cubeState);
+            logic.cubeState = logic.MoveState(move, logic.cubeState);
         }
     }
 

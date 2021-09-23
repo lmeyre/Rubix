@@ -18,6 +18,7 @@ public class SolverHelper
             case 1:
                 subState = new int[Constants.EDGES_COUNT];
                 Array.Copy(state, 20, subState, 0, Constants.EDGES_COUNT); // on copie juste la partie qui parle de l'edge orientation
+                //Debug.Log("Value 0 1 2 dans la copie : " + subState[0] + subState[1] + subState[2]);
                 return subState;
             // Phase 2: Corner orientations, E slice edges
             case 2:
@@ -51,5 +52,24 @@ public class SolverHelper
             default:
                 return null;
         }
+    }
+}
+
+public class SurrogateEqualityKey : IEqualityComparer<int[]>
+{
+    public bool Equals(int[] x, int[] y)
+    {
+        return x.SequenceEqual(y);
+    }
+
+    public int GetHashCode(int[] obj)
+    {
+        //Set value above the max value we can find in the array, multiply it by more than the max value we can find
+        int val = 30;
+        for (int i = 0; i < obj.Length; i++)
+        {
+            unchecked { val = val * 25 + obj[i]; }
+        }
+        return val;
     }
 }
