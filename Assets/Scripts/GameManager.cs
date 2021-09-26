@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             timer.Stop();
             UnityEngine.Debug.Log("Duration (With graphics) : " + timer.Elapsed.TotalSeconds);
             UnityEngine.Debug.Log("Moves Count : " + movesSequence.Count);
-            string sequence = GetStringSequence(movesSequence);
+            string sequence = Tools.TranslateMoveToInput(movesSequence);
             UnityEngine.Debug.Log("Sequence : " + sequence);
             TriggerNextMove();
         }
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     //Affect visual AND logic
     public void ApplyInput()
     {
-        if (cascading)
+        if (cascading || ArgumentEmulator.ARGUMENT == "")
             return;
         movesSequence.Clear();
         string[] parts = ArgumentEmulator.ARGUMENT.Split(' ');
@@ -98,15 +98,5 @@ public class GameManager : MonoBehaviour
         }
         moveManager.Move(movesSequence[0], 300);
         movesSequence.RemoveAt(0);
-    }
-
-    string GetStringSequence(List<int> moves)
-    {
-        string str = "";
-        foreach (int i in moves)
-        {
-            str += (i.ToString() + " ");
-        }
-        return str;
     }
 }
