@@ -1,6 +1,6 @@
 # Rubix
 
-![alt text](/img/Rubix.png)
+![alt text](/Img/Rubix.png)
 
 This is a project about solving a RubixCube.
 
